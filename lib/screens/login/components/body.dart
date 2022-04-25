@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/constants.dart';
+import 'package:mohurpe_a/screens/home/home_screen.dart';
 import 'package:mohurpe_a/screens/pwdreset/pwdreset_screen.dart';
 import 'package:mohurpe_a/screens/signup/signup_screen.dart';
 
@@ -82,7 +83,6 @@ class Body extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
               ),
-              onPressed: () {},
               child: const Text(
                 'LOGIN',
                 style: TextStyle(
@@ -90,6 +90,16 @@ class Body extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return HomeScreen();
+                    },
+                  ),
+                );
+              },
             ),
           ),
 
