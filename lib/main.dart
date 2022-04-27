@@ -7,6 +7,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  Color myColor = Colors.green;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -15,11 +17,11 @@ class MyApp extends StatelessWidget {
       title: 'MohurPe',
       theme: ThemeData(
         primaryColor: kPrimaryColor,
+        // primarySwatch: Colors.white,
         scaffoldBackgroundColor: Colors.white,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color?>(kPrimaryColor),
-            
           ),
         ),
       ),
