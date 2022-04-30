@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/screens/home/home_screen.dart';
+import 'package:mohurpe_a/screens/receiverDetail/receiverPhone.dart';
+import 'package:mohurpe_a/screens/receiverDetail/receiverUserId.dart';
 import 'package:mohurpe_a/screens/recenttrans/recentTransaction.dart';
 
-/////////////
 class History {
   late String name;
   late String date;
@@ -24,9 +25,8 @@ class Dues {
   Dues({required this.amount, required this.date, required this.name});
 }
 
-///////////////
 class BodyContent extends StatefulWidget {
-  BodyContent({Key? key}) : super(key: key);
+  const BodyContent({Key? key}) : super(key: key);
 
   @override
   State<BodyContent> createState() => _BodyContentState();
@@ -162,7 +162,7 @@ class _BodyContentState extends State<BodyContent> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return const HomeScreen();
+                                      return const ReceiverUserIDScreen();
                                     },
                                   ),
                                 );
@@ -226,7 +226,7 @@ class _BodyContentState extends State<BodyContent> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return const HomeScreen();
+                                      return const ReceiverPhoneScreen();
                                     },
                                   ),
                                 );

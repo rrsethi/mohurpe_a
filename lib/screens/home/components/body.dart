@@ -31,7 +31,7 @@ class Body extends StatelessWidget {
       ///////
       ///////
       // body: Transaction(),
-      body: BodyContent(),
+      body: const BodyContent(),
       // body: Transaction(),
       // body: condition? Payment():Transaction(),
       // body: Column(
