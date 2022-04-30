@@ -1,10 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/constants.dart';
-import 'package:mohurpe_a/screens/signup/signup_screen.dart';
 import 'package:mohurpe_a/screens/welcome/welcome_screen.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -31,7 +32,7 @@ class Body extends StatelessWidget {
           ),
 
           Padding(
-            padding: EdgeInsets.fromLTRB(0, 200, 0, 0),
+            padding: const EdgeInsets.fromLTRB(0, 200, 0, 0),
             child: Text(
               "Will be coming soon!",
               style: TextStyle(
@@ -155,7 +156,7 @@ class Body extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return WelcomeScreen();
+                                    return const WelcomeScreen();
                                   },
                                 ),
                               )),

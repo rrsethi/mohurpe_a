@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:mohurpe_a/constants.dart';
 import 'package:mohurpe_a/screens/login/login_screen.dart';
 
 import '../../signup/signup_screen.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     dynamic sizeHeight = size.height;
     return Container(
-      // var szheight = "rrsethi",
       height: size.height,
       width: double.infinity,
-
       padding: EdgeInsets.fromLTRB(0, size.height * 0.17, 0, 0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +54,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LogInScreen();
+                      return const LogInScreen();
                     },
                   ),
                 );
@@ -82,7 +81,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return SignUpScreen();
+                      return const SignUpScreen();
                     },
                   ),
                 );

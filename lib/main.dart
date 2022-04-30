@@ -3,17 +3,20 @@ import 'package:mohurpe_a/constants.dart';
 import 'package:mohurpe_a/screens/welcome/welcome_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  Color myColor = Colors.green;
+  const MyApp({Key? key}) : super(key: key);
+
+  // Color myColor = Colors.green;
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
       title: 'MohurPe',
       theme: ThemeData(
         primaryColor: kPrimaryColor,
@@ -25,7 +28,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: WelcomeScreen(),
+      // color: Colors.red,
+      home: const SafeArea(
+        top: true,
+        child: WelcomeScreen(),
+      ),
     );
   }
 }

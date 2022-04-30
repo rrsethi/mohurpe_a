@@ -4,14 +4,16 @@ import 'package:mohurpe_a/constants.dart';
 import 'package:mohurpe_a/screens/login/login_screen.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       height: size.height,
       width: double.infinity,
       child: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(0, size.height * 0.1, 0, 0),
+        padding: EdgeInsets.fromLTRB(0, size.height * 0.05, 0, 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -271,7 +273,7 @@ class Body extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return LogInScreen();
+                                      return const LogInScreen();
                                     },
                                   ),
                                 )),
