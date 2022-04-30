@@ -314,7 +314,8 @@ class _BodyContentState extends State<BodyContent> {
             height: 10,
           ),
           Container(
-            height: size.height * 0.22,
+            height: 225,
+            // height: size.height * 0.22,
             child: ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: history.length,
@@ -417,7 +418,8 @@ class _BodyContentState extends State<BodyContent> {
             height: 10,
           ),
           Container(
-            height: size.height * 0.15,
+            // height: size.height * 0.15,
+            height: 125,
             child: ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: due.length,
