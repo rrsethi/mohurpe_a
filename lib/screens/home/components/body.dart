@@ -31,7 +31,7 @@ class Body extends StatelessWidget {
       ///////
       ///////
       // body: Transaction(),
-      body: const BodyContent(),
+      body: BodyContent(),
       // body: Transaction(),
       // body: condition? Payment():Transaction(),
       // body: Column(
@@ -118,11 +118,11 @@ class Body extends StatelessWidget {
             //   ),
             // ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
               child: Container(
                 decoration: BoxDecoration(
                     // borderRadius: size.width*0.01,
-                    borderRadius: BorderRadius.circular(size.width * 0.015),
+                    borderRadius: BorderRadius.circular(size.width * 0.025),
                     color: Colors.grey.shade200,
                     border: Border.all(
                       color: Colors.grey.shade300, // red as border color
@@ -142,12 +142,12 @@ class Body extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
               child: Container(
                 // height: size.height * 0.05,
                 decoration: BoxDecoration(
                     // borderRadius: size.width*0.01,
-                    borderRadius: BorderRadius.circular(size.width * 0.015),
+                    borderRadius: BorderRadius.circular(size.width * 0.025),
                     color: Colors.grey.shade200,
                     border: Border.all(
                       color: Colors.grey.shade300, // red as border color
@@ -169,11 +169,11 @@ class Body extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
               child: Container(
                 decoration: BoxDecoration(
                     // borderRadius: size.width*0.01,
-                    borderRadius: BorderRadius.circular(size.width * 0.015),
+                    borderRadius: BorderRadius.circular(size.width * 0.025),
                     color: Colors.grey.shade200,
                     border: Border.all(
                       color: Colors.grey.shade300, // red as border color
@@ -193,11 +193,11 @@ class Body extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
               child: Container(
                 decoration: BoxDecoration(
                     // borderRadius: size.width*0.01,
-                    borderRadius: BorderRadius.circular(size.width * 0.015),
+                    borderRadius: BorderRadius.circular(size.width * 0.025),
                     color: Colors.grey.shade200,
                     border: Border.all(
                       color: Colors.grey.shade300, // red as border color
@@ -221,11 +221,11 @@ class Body extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
               child: Container(
                 decoration: BoxDecoration(
                     // borderRadius: size.width*0.01,
-                    borderRadius: BorderRadius.circular(size.width * 0.015),
+                    borderRadius: BorderRadius.circular(size.width * 0.025),
                     color: Colors.grey.shade200,
                     border: Border.all(
                       color: Colors.grey.shade300, // red as border color
@@ -245,11 +245,11 @@ class Body extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
               child: Container(
                 decoration: BoxDecoration(
                     // borderRadius: size.width*0.01,
-                    borderRadius: BorderRadius.circular(size.width * 0.015),
+                    borderRadius: BorderRadius.circular(size.width * 0.025),
                     color: Colors.grey.shade200,
                     border: Border.all(
                       color: Colors.grey.shade300, // red as border color

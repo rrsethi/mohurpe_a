@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/screens/home/home_screen.dart';
+import 'package:mohurpe_a/screens/recenttrans/recentTransaction.dart';
 
 /////////////
 class History {
@@ -25,7 +26,7 @@ class Dues {
 
 ///////////////
 class BodyContent extends StatefulWidget {
-  const BodyContent({Key? key}) : super(key: key);
+  BodyContent({Key? key}) : super(key: key);
 
   @override
   State<BodyContent> createState() => _BodyContentState();
@@ -270,104 +271,6 @@ class _BodyContentState extends State<BodyContent> {
               ),
             ),
           ),
-
-          // Container(
-          //   height: double.infinity,
-          //   child: Column(
-          //     mainAxisAlignment: MainAxisAlignment.start,
-          //     crossAxisAlignment: CrossAxisAlignment.center,
-          //     children: <Widget>[
-
-          //     ],
-          //   ),
-          // )
-          // const SizedBox(
-          //   height: 20,
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   crossAxisAlignment: CrossAxisAlignment.center,
-          //   children: const [
-          //     Text('Recent Transactions',
-          //         style: TextStyle(
-          //           fontSize: 20.0,
-          //           fontWeight: FontWeight.bold,
-          //           letterSpacing: 2.0,
-          //           color: Colors.black,
-          //           fontFamily: 'IndieFlower',
-          //         )),
-          //     SizedBox(
-          //       width: 40,
-          //     ),
-          //     Icon(
-          //       Icons.arrow_right,
-          //       color: Colors.grey,
-          //       size: 30,
-          //     ),
-          //   ],
-          // ),
-          // const SizedBox(
-          //   height: 10,
-          // ),
-          // Expanded(
-          //   // height: 200,
-          //   child: ListView.builder(
-          //       itemCount: due.length,
-          //       itemBuilder: (context, index) {
-          //         return Container(
-          //           margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-          //           height: 30,
-          //           decoration: BoxDecoration(
-          //             color: Colors.grey[300],
-          //             borderRadius: BorderRadius.all(
-          //               Radius.circular(15.0),
-          //             ),
-          //           ),
-          //           child: Row(
-          //             children: [
-          //               Container(
-          //                 height: 30,
-          //                 width: 10,
-          //                 padding: EdgeInsets.all(10),
-          //                 decoration: BoxDecoration(
-          //                   color: Colors.yellow,
-          //                 ),
-          //               ),
-          //               SizedBox(
-          //                 width: 20,
-          //               ),
-          //               Container(
-          //                   height: 30,
-          //                   width: 90,
-          //                   padding: EdgeInsets.all(8),
-          //                   child: Text(due[index].name,
-          //                       style: TextStyle(
-          //                           fontSize: 12,
-          //                           color: Colors.black,
-          //                           fontWeight: FontWeight.bold))),
-          //               Container(
-          //                   height: 30,
-          //                   width: 100,
-          //                   padding: EdgeInsets.all(8),
-          //                   child: Text(due[index].date,
-          //                       style: TextStyle(
-          //                         fontSize: 12,
-          //                         color: Colors.black,
-          //                       ))),
-          //               Container(
-          //                   height: 30,
-          //                   width: 90,
-          //                   padding: EdgeInsets.all(8),
-          //                   child: Text("Rs. " + due[index].amount.toString(),
-          //                       style: TextStyle(
-          //                           fontSize: 12,
-          //                           color: Colors.black,
-          //                           fontWeight: FontWeight.bold))),
-          //             ],
-          //           ),
-          //         );
-          //       }),
-          // ),
           const SizedBox(
             height: 20,
           ),
@@ -376,8 +279,8 @@ class _BodyContentState extends State<BodyContent> {
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text('Recent Transactions',
+              children: [
+                const Text('Recent Transactions',
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 20.0,
@@ -386,14 +289,23 @@ class _BodyContentState extends State<BodyContent> {
                       color: Colors.black,
                       // fontFamily: 'IndieFlower',
                     )),
-                // const SizedBox(
-                //   width: 40,
-                // ),
-                Icon(
-                  // Alignment.topRight
-                  Icons.arrow_right,
-                  color: Colors.black,
-                  size: 30,
+                InkWell(
+                  child: const Icon(
+                    // Alignment.topRight
+                    Icons.arrow_right,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const RecentTransScreen();
+                        },
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -401,7 +313,6 @@ class _BodyContentState extends State<BodyContent> {
           const SizedBox(
             height: 10,
           ),
-
           Expanded(
             child: ListView.builder(
                 itemCount: history.length,
@@ -471,11 +382,9 @@ class _BodyContentState extends State<BodyContent> {
                   );
                 }),
           ),
-
           const SizedBox(
             height: 20,
           ),
-
           Padding(
             padding: EdgeInsets.only(left: size.width * 0.05),
             child: Row(
@@ -502,11 +411,9 @@ class _BodyContentState extends State<BodyContent> {
               ],
             ),
           ),
-
           const SizedBox(
             height: 10,
           ),
-
           Expanded(
             child: ListView.builder(
                 itemCount: due.length,
@@ -565,7 +472,6 @@ class _BodyContentState extends State<BodyContent> {
                   );
                 }),
           ),
-
           Padding(
             padding: EdgeInsets.only(
                 left: size.width * 0.05,
@@ -595,7 +501,6 @@ class _BodyContentState extends State<BodyContent> {
               ],
             ),
           ),
-
           const SizedBox(
             height: 10,
           ),
@@ -707,92 +612,9 @@ class _BodyContentState extends State<BodyContent> {
                         },
                       ),
                     ),
-                    // Container(
-                    //   margin: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-                    //   height: 95,
-                    //   width: 95,
-                    //   decoration: BoxDecoration(
-                    //     color: Colors.grey[300],
-                    //     borderRadius: const BorderRadius.all(
-                    //       Radius.circular(15.0),
-                    //     ),
-                    //   ),
-                    // ),
-                    // Container(
-                    //   margin: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-                    //   height: 95,
-                    //   width: 95,
-                    //   decoration: BoxDecoration(
-                    //     color: Colors.grey[300],
-                    //     borderRadius: const BorderRadius.all(
-                    //       Radius.circular(15.0),
-                    //     ),
-                    //   ),
-                    // ),
-                    // Container(
-                    //   margin: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-                    //   height: 95,
-                    //   width: 95,
-                    //   decoration: BoxDecoration(
-                    //     color: Colors.grey[300],
-                    //     borderRadius: const BorderRadius.all(
-                    //       Radius.circular(15.0),
-                    //     ),
-                    //   ),
-                    // ),
                   ],
                 ),
               ))
-
-          // const SizedBox(
-          //   height: 20,
-          // ),
-
-          // SizedBox(
-          //   height: 50,
-          //   width: 200,
-          // child: ElevatedButton(
-          //   color: Colors.blue[700],
-          //   child: const Text(
-          //     "Pay",
-          //     style: TextStyle(fontSize: 25, color: Colors.white),
-          //   ),
-          //   onPressed: () {
-          //     Navigator.pushNamed(context, '/payment');
-          //   },
-          //   shape: new RoundedRectangleBorder(
-          //     borderRadius: new BorderRadius.circular(20.0),
-          //   ),
-          // ),
-          //   child: ElevatedButton(
-          //     style: ElevatedButton.styleFrom(
-          //       // minimumSize: Size(size.width * 0.2, size.width * 0.2),
-          //       shape: RoundedRectangleBorder(
-          //           borderRadius: BorderRadius.circular(20)),
-          //     ),
-          //     child: const Text(
-          //       'LOGIN',
-          //       style: TextStyle(
-          //         fontSize: 20.0,
-          //         color: Colors.white,
-          //       ),
-          //     ),
-          //     onPressed: () {
-          //       Navigator.push(
-          //         context,
-          //         MaterialPageRoute(
-          //           builder: (context) {
-          //             return HomeScreen();
-          //           },
-          //         ),
-          //       );
-          //     },
-          //   ),
-          // ),
-
-          // const SizedBox(
-          //   height: 20,
-          // )
         ],
       ),
     );

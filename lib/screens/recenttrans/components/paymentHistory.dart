@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mohurpe_a/constants.dart';
 
 class History {
   late String name;
@@ -47,40 +48,23 @@ class _PaymentHistoryState extends State<PaymentHistory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: kPrimaryColor,
+        title: const Text(
+          "Transaction History",
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(
-              height: 60,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text('Payment History',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 2.0,
-                      color: Colors.black,
-                      fontFamily: 'IndieFlower',
-                    )),
-                SizedBox(
-                  width: 100,
-                ),
-                Icon(
-                  Icons.filter_alt_outlined,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
+            // const SizedBox(
+            //   height: 60,
+            // ),
+
             const SizedBox(
               height: 30,
             ),
@@ -102,7 +86,7 @@ class _PaymentHistoryState extends State<PaymentHistory> {
                       margin: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                       height: 35,
                       decoration: BoxDecoration(
-                        color: Colors.grey[300],
+                        color: Colors.grey[200],
                         borderRadius: const BorderRadius.all(
                           Radius.circular(15.0),
                         ),
