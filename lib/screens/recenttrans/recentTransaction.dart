@@ -11,6 +11,7 @@ class RecentTransScreen extends StatelessWidget {
       body: SafeArea(
         top: true,
         child: PaymentHistory(),
+        //
       ),
     );
   }
