@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mohurpe_a/constants.dart';
 import 'package:mohurpe_a/screens/home/home_screen.dart';
-
-import 'package:flutter/material.dart';
-import 'package:mohurpe_a/constants.dart';
 
 class LastFiveUserID {
   late String userID;
@@ -40,10 +36,11 @@ class _ReceiverUserIDScreenState extends State<ReceiverUserIDScreen> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: Center(
+      body: SingleChildScrollView(
+        // alignment: ,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             // const SizedBox(
             //   height: 60,
@@ -52,8 +49,19 @@ class _ReceiverUserIDScreenState extends State<ReceiverUserIDScreen> {
             const SizedBox(
               height: 30,
             ),
-            Expanded(
+            Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(20),
+              child: const Text(
+                "Recently used user IDs:",
+                textAlign: TextAlign.left,
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            SizedBox(
+              height: size.height * 0.25,
               child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: userid.length,
                   itemBuilder: (context, index) {
                     // String status = history[index].status;
@@ -122,8 +130,8 @@ class _ReceiverUserIDScreenState extends State<ReceiverUserIDScreen> {
                   }),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(size.width * 0.05, size.height * 0.1,
-                  size.width * 0.05, size.height * 0.01),
+              padding: EdgeInsets.fromLTRB(size.width * 0.05,
+                  size.height * 0.08, size.width * 0.05, size.height * 0.01),
               child: TextField(
                 decoration: InputDecoration(
                   labelText: 'User ID',
@@ -140,6 +148,54 @@ class _ReceiverUserIDScreenState extends State<ReceiverUserIDScreen> {
                 ),
               ),
             ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                  size.width * 0.05, 15, size.width * 0.05, size.height * 0.01),
+              child: TextField(
+                decoration: InputDecoration(
+                  labelText: 'Amount',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(width: 3, color: Colors.grey),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(width: 3, color: kPrimaryColor),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  hintText: "Enter Amount",
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                  0, size.height * 0.05, 0, size.height * 0.2),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(size.width * 0.7, 55),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                ),
+                child: const Text(
+                  'PAY',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const HomeScreen();
+                      },
+                    ),
+                  );
+                },
+              ),
+            )
           ],
         ),
       ),

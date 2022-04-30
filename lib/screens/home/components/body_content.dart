@@ -50,10 +50,10 @@ class _BodyContentState extends State<BodyContent> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SizedBox(
+    return SingleChildScrollView(
       // height: size.height,
-      height: double.infinity,
-      width: size.width,
+      // height: double.infinity,
+      // width: size.width,
       // padding: EdgeInsets.fromLTRB(0, size.height * 0.03, 0, 0),
       child: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
@@ -313,8 +313,10 @@ class _BodyContentState extends State<BodyContent> {
           const SizedBox(
             height: 10,
           ),
-          Expanded(
+          Container(
+            height: size.height * 0.22,
             child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 itemCount: history.length,
                 itemBuilder: (context, index) {
                   String status = history[index].status;
@@ -414,8 +416,10 @@ class _BodyContentState extends State<BodyContent> {
           const SizedBox(
             height: 10,
           ),
-          Expanded(
+          Container(
+            height: size.height * 0.15,
             child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 itemCount: due.length,
                 itemBuilder: (context, index) {
                   return Container(
