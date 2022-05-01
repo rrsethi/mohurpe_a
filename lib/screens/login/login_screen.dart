@@ -13,7 +13,7 @@ class LogInScreen extends StatelessWidget {
         body: AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light
           .copyWith(statusBarColor: Theme.of(context).primaryColor),
-      child: const SafeArea(
+      child: SafeArea(
         child: Body(),
       ),
     ));

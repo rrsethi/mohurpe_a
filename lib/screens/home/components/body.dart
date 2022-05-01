@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/constants.dart';
 import 'package:mohurpe_a/screens/home/components/body_content.dart';
+import 'package:mohurpe_a/screens/pwdreset/coming_soon_screen.dart';
 import 'package:mohurpe_a/screens/recenttrans/recentTransaction.dart';
 
 class Body extends StatelessWidget {
@@ -133,10 +134,14 @@ class Body extends StatelessWidget {
                       style: TextStyle(
                           fontSize: size.height * 0.015, color: kPrimaryColor)),
                   onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
-                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const ComingSoonScreen();
+                        },
+                      ),
+                    );
                   },
                 ),
               ),
@@ -160,10 +165,14 @@ class Body extends StatelessWidget {
                         fontSize: size.height * 0.015, color: kPrimaryColor),
                   ),
                   onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
-                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const ComingSoonScreen();
+                        },
+                      ),
+                    );
                   },
                 ),
               ),
@@ -184,10 +193,14 @@ class Body extends StatelessWidget {
                       style: TextStyle(
                           fontSize: size.height * 0.015, color: kPrimaryColor)),
                   onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
-                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const ComingSoonScreen();
+                        },
+                      ),
+                    );
                   },
                 ),
               ),
@@ -236,10 +249,14 @@ class Body extends StatelessWidget {
                       style: TextStyle(
                           fontSize: size.height * 0.015, color: kPrimaryColor)),
                   onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
-                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const ComingSoonScreen();
+                        },
+                      ),
+                    );
                   },
                 ),
               ),
@@ -260,10 +277,14 @@ class Body extends StatelessWidget {
                       style: TextStyle(
                           fontSize: size.height * 0.015, color: kPrimaryColor)),
                   onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
-                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const ComingSoonScreen();
+                        },
+                      ),
+                    );
                   },
                 ),
               ),

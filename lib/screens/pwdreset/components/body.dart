@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/constants.dart';
-import 'package:mohurpe_a/screens/welcome/welcome_screen.dart';
+// import 'package:mohurpe_a/screens/welcome/welcome_screen.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -152,16 +152,18 @@ class Body extends StatelessWidget {
                             fontSize: size.width * 0.06),
                         // style: TextStyle(),
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return const WelcomeScreen();
-                                  },
-                                ),
-                              )),
+                          ..onTap = () => Navigator.pop(context)
+                        // ..onTap = () => Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(
+                        //         builder: (context) {
+                        //           return const WelcomeScreen();
+                        //         },
+                        //       ),
+                        //     )),
+                        ),
                     TextSpan(
-                      text: ' to return to Home Screen',
+                      text: ' to return to previous screen',
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,

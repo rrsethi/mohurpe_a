@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:mohurpe_a/constants.dart';
 import 'package:mohurpe_a/screens/home/home_screen.dart';
 
-class LastFivePhone {
-  late int Phone;
+class LastFiveUpiID {
+  late String upiID;
 
-  LastFivePhone({required this.Phone});
+  LastFiveUpiID({required this.upiID});
 }
 
-class ReceiverPhoneScreen extends StatefulWidget {
-  const ReceiverPhoneScreen({Key? key}) : super(key: key);
+class ReceiverUpiIDScreen extends StatefulWidget {
+  const ReceiverUpiIDScreen({Key? key}) : super(key: key);
 
   @override
-  State<ReceiverPhoneScreen> createState() => _ReceiverPhoneScreenState();
+  State<ReceiverUpiIDScreen> createState() => _ReceiverUpiIDScreenState();
 }
 
-class _ReceiverPhoneScreenState extends State<ReceiverPhoneScreen> {
-  List<LastFivePhone> phone = [
-    LastFivePhone(Phone: 9685746355),
-    LastFivePhone(Phone: 9685746372),
-    LastFivePhone(Phone: 9685746526),
-    LastFivePhone(Phone: 9685746355),
-    LastFivePhone(Phone: 9685746352),
+class _ReceiverUpiIDScreenState extends State<ReceiverUpiIDScreen> {
+  List<LastFiveUpiID> upiid = [
+    LastFiveUpiID(upiID: "rrsethi"),
+    LastFiveUpiID(upiID: "rrsethi"),
+    LastFiveUpiID(upiID: "rrsethi"),
+    LastFiveUpiID(upiID: "rrsethi"),
+    LastFiveUpiID(upiID: "rrsethi"),
   ];
 
   @override
@@ -32,7 +32,7 @@ class _ReceiverPhoneScreenState extends State<ReceiverPhoneScreen> {
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         title: const Text(
-          "Enter beneficiary phone number",
+          "Enter beneficiary upi id",
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -47,7 +47,7 @@ class _ReceiverPhoneScreenState extends State<ReceiverPhoneScreen> {
             Container(
               padding: const EdgeInsets.all(20),
               child: const Text(
-                "Recently used phone number's:",
+                "Recently used upi id's:",
                 textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 20),
               ),
@@ -57,10 +57,10 @@ class _ReceiverPhoneScreenState extends State<ReceiverPhoneScreen> {
               width: 190,
               child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: phone.length,
+                  itemCount: upiid.length,
                   itemBuilder: (context, index) {
                     return Container(
-                      alignment: Alignment.topLeft,
+                      alignment: Alignment.center,
                       margin: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                       height: 43,
                       decoration: BoxDecoration(
@@ -72,16 +72,16 @@ class _ReceiverPhoneScreenState extends State<ReceiverPhoneScreen> {
                       child: Row(
                         children: [
                           Container(
-                            alignment: Alignment.topLeft,
+                            alignment: Alignment.center,
                             height: 35,
                             width: 15,
                           ),
                           Container(
-                              alignment: Alignment.topLeft,
+                              alignment: Alignment.center,
                               height: 35,
                               // width: 90,
                               padding: const EdgeInsets.all(10),
-                              child: Text("${phone[index].Phone}",
+                              child: Text(upiid[index].upiID,
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                       fontSize: 15,
@@ -97,7 +97,7 @@ class _ReceiverPhoneScreenState extends State<ReceiverPhoneScreen> {
                   size.width * 0.05, 50, size.width * 0.05, size.height * 0.01),
               child: TextField(
                 decoration: InputDecoration(
-                  labelText: 'Phone Number',
+                  labelText: 'UPI ID',
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(width: 3, color: Colors.grey),
                     borderRadius: BorderRadius.circular(15),
@@ -107,7 +107,7 @@ class _ReceiverPhoneScreenState extends State<ReceiverPhoneScreen> {
                         const BorderSide(width: 3, color: kPrimaryColor),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  hintText: "Enter receiver's phone number",
+                  hintText: "Enter receiver's upi id",
                 ),
               ),
             ),

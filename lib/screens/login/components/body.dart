@@ -2,12 +2,19 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/constants.dart';
 import 'package:mohurpe_a/screens/home/home_screen.dart';
-import 'package:mohurpe_a/screens/pwdreset/pwdreset_screen.dart';
+import 'package:mohurpe_a/screens/pwdreset/coming_soon_screen.dart';
 import 'package:mohurpe_a/screens/signup/signup_screen.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
-
+  Body({Key? key}) : super(key: key);
+  TextEditingController useridController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  String CorrectUserid = "rrsethi";
+  String CorrectPassword = "rrsethi";
+  // Widget okButton = ElevatedButton(
+  //   child: Text("OK"),
+  //   onPressed: () {},
+  // );
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -45,6 +52,7 @@ class Body extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(size.width * 0.05,
                     size.height * 0.1, size.width * 0.05, size.height * 0.01),
                 child: TextField(
+                  controller: useridController,
                   decoration: InputDecoration(
                     labelText: 'User ID',
                     enabledBorder: OutlineInputBorder(
@@ -66,6 +74,7 @@ class Body extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(size.width * 0.05, 15,
                     size.width * 0.05, size.height * 0.01),
                 child: TextField(
+                  controller: passwordController,
                   decoration: InputDecoration(
                     labelText: 'Password',
                     enabledBorder: OutlineInputBorder(
@@ -99,14 +108,54 @@ class Body extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const HomeScreen();
+                    // print(useridController.text);
+                    // print(passwordController.text);
+                    if (useridController.text == CorrectUserid) {
+                      if (passwordController.text == CorrectPassword) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const HomeScreen();
+                            },
+                          ),
+                        );
+                      } else {
+                        AlertDialog alert = AlertDialog(
+                            title: Text("Incorrect Password!"),
+                            actions: <Widget>[
+                              ElevatedButton(
+                                child: const Text('Back'),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ]);
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return alert;
+                          },
+                        );
+                      }
+                    } else {
+                      AlertDialog alert = AlertDialog(
+                          title: Text("Incorrect User ID!!!"),
+                          actions: <Widget>[
+                            ElevatedButton(
+                              child: const Text('Back'),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ]);
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return alert;
                         },
-                      ),
-                    );
+                      );
+                    }
                   },
                 ),
               ),
@@ -129,7 +178,7 @@ class Body extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) {
-                                        return const PwdResetScreen();
+                                        return const ComingSoonScreen();
                                       },
                                     ),
                                   )),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/screens/home/home_screen.dart';
+import 'package:mohurpe_a/screens/pwdreset/coming_soon_screen.dart';
 import 'package:mohurpe_a/screens/receiverDetail/receiverPhone.dart';
 import 'package:mohurpe_a/screens/receiverDetail/receiverUserId.dart';
+import 'package:mohurpe_a/screens/receiverDetail/receiverupiid.dart';
 import 'package:mohurpe_a/screens/recenttrans/recentTransaction.dart';
 
 class History {
@@ -98,7 +100,7 @@ class _BodyContentState extends State<BodyContent> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return const HomeScreen();
+                                      return const ComingSoonScreen();
                                     },
                                   ),
                                 );
@@ -128,7 +130,7 @@ class _BodyContentState extends State<BodyContent> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return const HomeScreen();
+                                      return const ReceiverUpiIDScreen();
                                     },
                                   ),
                                 );
@@ -192,7 +194,7 @@ class _BodyContentState extends State<BodyContent> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return const HomeScreen();
+                                      return const ComingSoonScreen();
                                     },
                                   ),
                                 );
@@ -256,7 +258,7 @@ class _BodyContentState extends State<BodyContent> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return const HomeScreen();
+                                      return const ComingSoonScreen();
                                     },
                                   ),
                                 );
@@ -313,11 +315,11 @@ class _BodyContentState extends State<BodyContent> {
           const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             height: 225,
             // height: size.height * 0.22,
             child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: history.length,
                 itemBuilder: (context, index) {
                   String status = history[index].status;
@@ -417,11 +419,11 @@ class _BodyContentState extends State<BodyContent> {
           const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             // height: size.height * 0.15,
             height: 125,
             child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: due.length,
                 itemBuilder: (context, index) {
                   return Container(
@@ -553,7 +555,7 @@ class _BodyContentState extends State<BodyContent> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return const HomeScreen();
+                                return const ComingSoonScreen();
                               },
                             ),
                           );
@@ -582,7 +584,7 @@ class _BodyContentState extends State<BodyContent> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return const HomeScreen();
+                                return const ComingSoonScreen();
                               },
                             ),
                           );
@@ -611,7 +613,7 @@ class _BodyContentState extends State<BodyContent> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return const HomeScreen();
+                                return const ComingSoonScreen();
                               },
                             ),
                           );

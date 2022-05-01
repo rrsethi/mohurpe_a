@@ -37,48 +37,34 @@ class _ReceiverUserIDScreenState extends State<ReceiverUserIDScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        // alignment: ,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          // crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            // const SizedBox(
-            //   height: 60,
-            // ),
-
             const SizedBox(
               height: 30,
             ),
             Container(
-              alignment: Alignment.topLeft,
               padding: const EdgeInsets.all(20),
               child: const Text(
-                "Recently used user IDs:",
+                "Recently used user id's:",
                 textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 20),
               ),
             ),
             SizedBox(
-              height: size.height * 0.25,
+              height: 260,
+              width: 190,
               child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: userid.length,
                   itemBuilder: (context, index) {
-                    // String status = history[index].status;
-                    // Color bgColor;
-                    // if (status == "Done") {
-                    //   bgColor = Colors.green;
-                    // } else if (status == "Failed") {
-                    //   bgColor = Colors.red;
-                    // } else {
-                    // bgColor = Colors.yellow;
-                    // }
-
                     return Container(
+                      alignment: Alignment.center,
                       margin: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                      height: 35,
+                      height: 43,
                       decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        border: Border.all(width: 3, color: Colors.grey),
                         borderRadius: const BorderRadius.all(
                           Radius.circular(15.0),
                         ),
@@ -86,52 +72,29 @@ class _ReceiverUserIDScreenState extends State<ReceiverUserIDScreen> {
                       child: Row(
                         children: [
                           Container(
+                            alignment: Alignment.center,
                             height: 35,
-                            width: 10,
-                            padding: const EdgeInsets.all(10),
-                            // decoration: BoxDecoration(
-                            //   // color: bgColor,
-                            // ),
-                          ),
-                          const SizedBox(
-                            width: 20,
+                            width: 15,
                           ),
                           Container(
+                              alignment: Alignment.center,
                               height: 35,
-                              width: 90,
+                              // width: 90,
                               padding: const EdgeInsets.all(10),
                               child: Text(userid[index].userID,
+                                  textAlign: TextAlign.center,
                                   style: const TextStyle(
-                                      fontSize: 12,
+                                      fontSize: 15,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold))),
-                          // Container(
-                          //     height: 35,
-                          //     width: 100,
-                          //     padding: const EdgeInsets.all(10),
-                          //     child: Text(history[index].date,
-                          //         style: const TextStyle(
-                          //           fontSize: 12,
-                          //           color: Colors.black,
-                          //         ))),
-                          // Container(
-                          //     height: 35,
-                          //     width: 90,
-                          //     padding: const EdgeInsets.all(10),
-                          //     child: Text(
-                          //         "Rs. " + history[index].amount.toString(),
-                          //         style: const TextStyle(
-                          //             fontSize: 12,
-                          //             color: Colors.black,
-                          //             fontWeight: FontWeight.bold))),
                         ],
                       ),
                     );
                   }),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(size.width * 0.05,
-                  size.height * 0.08, size.width * 0.05, size.height * 0.01),
+              padding: EdgeInsets.fromLTRB(
+                  size.width * 0.05, 50, size.width * 0.05, size.height * 0.01),
               child: TextField(
                 decoration: InputDecoration(
                   labelText: 'User ID',
@@ -167,13 +130,13 @@ class _ReceiverUserIDScreenState extends State<ReceiverUserIDScreen> {
                 ),
               ),
             ),
-
-            Padding(
+            Container(
+              alignment: Alignment.center,
               padding: EdgeInsets.fromLTRB(
-                  0, size.height * 0.05, 0, size.height * 0.2),
+                  0, size.height * 0.03, 0, size.height * 0.2),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(size.width * 0.7, 55),
+                  minimumSize: Size(size.width * 0.5, 55),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                 ),
