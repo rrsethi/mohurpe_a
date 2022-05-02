@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mohurpe_a/constants.dart';
 import 'package:mohurpe_a/screens/home/components/body_content.dart';
 import 'package:mohurpe_a/screens/pwdreset/coming_soon_screen.dart';
-import 'package:mohurpe_a/screens/recenttrans/recentTransaction.dart';
+import 'package:mohurpe_a/screens/recenttrans/recent_transaction.dart';
 
 class Body extends StatelessWidget {
   final padding = const EdgeInsets.symmetric(horizontal: 20);

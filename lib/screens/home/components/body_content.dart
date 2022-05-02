@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mohurpe_a/screens/home/home_screen.dart';
 import 'package:mohurpe_a/screens/pwdreset/coming_soon_screen.dart';
-import 'package:mohurpe_a/screens/receiverDetail/receiverPhone.dart';
-import 'package:mohurpe_a/screens/receiverDetail/receiverUserId.dart';
-import 'package:mohurpe_a/screens/receiverDetail/receiverupiid.dart';
-import 'package:mohurpe_a/screens/recenttrans/recentTransaction.dart';
+import 'package:mohurpe_a/screens/receiverDetail/receiver_phone.dart';
+import 'package:mohurpe_a/screens/receiverDetail/receiver_user_id.dart';
+import 'package:mohurpe_a/screens/receiverDetail/receiver_upi_id.dart';
+import 'package:mohurpe_a/screens/recenttrans/recent_transaction.dart';
 
 class History {
   late String name;
