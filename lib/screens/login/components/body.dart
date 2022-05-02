@@ -5,16 +5,23 @@ import 'package:mohurpe_a/screens/home/home_screen.dart';
 import 'package:mohurpe_a/screens/pwdreset/coming_soon_screen.dart';
 import 'package:mohurpe_a/screens/signup/signup_screen.dart';
 
-class Body extends StatelessWidget {
-  Body({Key? key}) : super(key: key);
+class Body extends StatefulWidget {
+  const Body({Key? key}) : super(key: key);
+
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   TextEditingController useridController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
-  String CorrectUserid = "rrsethi";
-  String CorrectPassword = "rrsethi";
+
+  String correctUserid = "rrsethi";
+
+  String correctPassword = "rrsethi";
+
   // Widget okButton = ElevatedButton(
-  //   child: Text("OK"),
-  //   onPressed: () {},
-  // );
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -107,8 +114,8 @@ class Body extends StatelessWidget {
                   onPressed: () {
                     // print(useridController.text);
                     // print(passwordController.text);
-                    if (useridController.text == CorrectUserid) {
-                      if (passwordController.text == CorrectPassword) {
+                    if (useridController.text == correctUserid) {
+                      if (passwordController.text == correctPassword) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -119,7 +126,7 @@ class Body extends StatelessWidget {
                         );
                       } else {
                         AlertDialog alert = AlertDialog(
-                            title: Text("Incorrect Password!"),
+                            title: const Text("Incorrect Password!"),
                             actions: <Widget>[
                               ElevatedButton(
                                 child: const Text('Back'),
@@ -137,7 +144,7 @@ class Body extends StatelessWidget {
                       }
                     } else {
                       AlertDialog alert = AlertDialog(
-                          title: Text("Incorrect User ID!"),
+                          title: const Text("Incorrect User ID!"),
                           actions: <Widget>[
                             ElevatedButton(
                               child: const Text('Back'),

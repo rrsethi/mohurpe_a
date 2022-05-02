@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/constants.dart';
-import 'package:mohurpe_a/screens/home/home_screen.dart';
 import 'package:mohurpe_a/screens/paymentSelection/payment_selection.dart';
 
-class LastFiveUpiID {
-  late String upiID;
+class LastFiveUserID {
+  late String userID;
 
-  LastFiveUpiID({required this.upiID});
+  LastFiveUserID({required this.userID});
 }
 
-class ReceiverUpiIDScreen extends StatefulWidget {
-  const ReceiverUpiIDScreen({Key? key}) : super(key: key);
+class ReceiverUserIDScreen extends StatefulWidget {
+  const ReceiverUserIDScreen({Key? key}) : super(key: key);
 
   @override
-  State<ReceiverUpiIDScreen> createState() => _ReceiverUpiIDScreenState();
+  State<ReceiverUserIDScreen> createState() => _ReceiverUserIDScreenState();
 }
 
-class _ReceiverUpiIDScreenState extends State<ReceiverUpiIDScreen> {
-  List<LastFiveUpiID> upiid = [
-    LastFiveUpiID(upiID: "rrsethi"),
-    LastFiveUpiID(upiID: "rrsethi"),
-    LastFiveUpiID(upiID: "rrsethi"),
-    LastFiveUpiID(upiID: "rrsethi"),
-    LastFiveUpiID(upiID: "rrsethi"),
+class _ReceiverUserIDScreenState extends State<ReceiverUserIDScreen> {
+  List<LastFiveUserID> userid = [
+    LastFiveUserID(userID: "rrsethi"),
+    LastFiveUserID(userID: "rrsethi"),
+    LastFiveUserID(userID: "rrsethi"),
+    LastFiveUserID(userID: "rrsethi"),
+    LastFiveUserID(userID: "rrsethi"),
   ];
 
   @override
@@ -33,7 +32,7 @@ class _ReceiverUpiIDScreenState extends State<ReceiverUpiIDScreen> {
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         title: const Text(
-          "Enter beneficiary upi id",
+          "Enter beneficiary user id",
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -48,7 +47,7 @@ class _ReceiverUpiIDScreenState extends State<ReceiverUpiIDScreen> {
             Container(
               padding: const EdgeInsets.all(20),
               child: const Text(
-                "Recently used upi id's:",
+                "Recently used user id's:",
                 textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 20),
               ),
@@ -58,7 +57,7 @@ class _ReceiverUpiIDScreenState extends State<ReceiverUpiIDScreen> {
               width: 190,
               child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: upiid.length,
+                  itemCount: userid.length,
                   itemBuilder: (context, index) {
                     return Container(
                       alignment: Alignment.center,
@@ -82,7 +81,7 @@ class _ReceiverUpiIDScreenState extends State<ReceiverUpiIDScreen> {
                               height: 35,
                               // width: 90,
                               padding: const EdgeInsets.all(10),
-                              child: Text(upiid[index].upiID,
+                              child: Text(userid[index].userID,
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                       fontSize: 15,
@@ -98,7 +97,7 @@ class _ReceiverUpiIDScreenState extends State<ReceiverUpiIDScreen> {
                   size.width * 0.05, 50, size.width * 0.05, size.height * 0.01),
               child: TextField(
                 decoration: InputDecoration(
-                  labelText: 'UPI ID',
+                  labelText: 'User ID',
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(width: 3, color: Colors.grey),
                     borderRadius: BorderRadius.circular(15),
@@ -108,7 +107,7 @@ class _ReceiverUpiIDScreenState extends State<ReceiverUpiIDScreen> {
                         const BorderSide(width: 3, color: kPrimaryColor),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  hintText: "Enter receiver's upi id",
+                  hintText: "Enter receiver's user id",
                 ),
               ),
             ),

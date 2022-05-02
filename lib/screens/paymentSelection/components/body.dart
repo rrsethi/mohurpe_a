@@ -9,7 +9,6 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  // The inital group value
   String _selectedMethod = 'wallet';
 
   var walletBalance = 10;
@@ -156,7 +155,7 @@ class _BodyState extends State<Body> {
                           decoration: BoxDecoration(
                               border: Border.all(width: 2, color: Colors.grey)),
                           child: Text("Available amount: $walletBalance",
-                              style: TextStyle(fontSize: 20)),
+                              style: const TextStyle(fontSize: 20)),
                         )
                       : _selectedMethod == "upi"
                           ? Container(
@@ -180,7 +179,7 @@ class _BodyState extends State<Body> {
                                     value: registeredUPIs,
                                     child: Text(
                                       registeredUPIs,
-                                      style: TextStyle(fontSize: 20),
+                                      style: const TextStyle(fontSize: 20),
                                     ),
                                   );
                                 }).toList(),
@@ -215,7 +214,7 @@ class _BodyState extends State<Body> {
                                         value: registeredCards,
                                         child: Text(
                                           registeredCards,
-                                          style: TextStyle(fontSize: 20),
+                                          style: const TextStyle(fontSize: 20),
                                         ),
                                       );
                                     }).toList(),
@@ -250,7 +249,8 @@ class _BodyState extends State<Body> {
                                           return DropdownMenuItem(
                                             value: registeredNBs,
                                             child: Text(registeredNBs,
-                                                style: TextStyle(fontSize: 20)),
+                                                style: const TextStyle(
+                                                    fontSize: 20)),
                                           );
                                         }).toList(),
                                         // After selecting the desired option,it will
@@ -277,37 +277,35 @@ class _BodyState extends State<Body> {
                                   //     });
                                   //   },
                                   // ))
-                                  : Text('rr sethi'),
+                                  : const Text('rr sethi'),
                 ],
               ),
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 6, top: 25.0),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: Size(size.width * 0.5, 55),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
+              Padding(
+                padding: const EdgeInsets.only(left: 6, top: 25.0),
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(size.width * 0.5, 55),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                    child: const Text(
+                      'PAY',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
                       ),
-                      child: const Text(
-                        'PAY',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.white,
-                        ),
-                      ),
-                      onPressed: () {
-                        // print(useridController.text);
-                        // print(passwordController.text);
+                    ),
+                    onPressed: () {
+                      // print(useridController.text);
+                      // print(passwordController.text);
 
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) {
-                        //       return Null;
-                        //     },
-                      }),
-                ),
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) {
+                      //       return Null;
+                      //     },
+                    }),
               ),
             ],
           )),
