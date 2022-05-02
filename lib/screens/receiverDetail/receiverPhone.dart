@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/constants.dart';
 import 'package:mohurpe_a/screens/home/home_screen.dart';
+import 'package:mohurpe_a/screens/paymentSelection/payment_selection.dart';
 
 class LastFivePhone {
   late int Phone;
@@ -152,7 +153,7 @@ class _ReceiverPhoneScreenState extends State<ReceiverPhoneScreen> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const HomeScreen();
+                        return const PaymentSelectionScreen();
                       },
                     ),
                   );

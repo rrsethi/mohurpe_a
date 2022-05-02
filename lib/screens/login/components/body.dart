@@ -26,12 +26,9 @@ class Body extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Positioned(
-                top: size.height * 0.2,
-                child: Image.asset(
-                  "assets/images/logo.png",
-                  width: size.width * 0.6,
-                ),
+              Image.asset(
+                "assets/images/logo.png",
+                width: size.width * 0.6,
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(0, size.height * 0.01, 0, 0),
@@ -140,7 +137,7 @@ class Body extends StatelessWidget {
                       }
                     } else {
                       AlertDialog alert = AlertDialog(
-                          title: Text("Incorrect User ID!!!"),
+                          title: Text("Incorrect User ID!"),
                           actions: <Widget>[
                             ElevatedButton(
                               child: const Text('Back'),

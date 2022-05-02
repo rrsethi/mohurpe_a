@@ -17,13 +17,10 @@ class Body extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Positioned(
-            top: size.height * 0.2,
-            child: Image.asset(
-              "assets/images/logo.png",
-              width: size.width * 0.6,
-              // height: size.height * 0.2,
-            ),
+          Image.asset(
+            "assets/images/logo.png",
+            width: size.width * 0.6,
+            // height: size.height * 0.2,
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(0, size.height * 0.01, 0, 0),
