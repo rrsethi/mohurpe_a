@@ -29,17 +29,38 @@ class SupabaseHandler {
     required String email,
     required String password,
   }) async {
-    final res = await client.auth.signIn(
-      email: email,
-      password: password,
-    );
+    try {
+      final res = await client.auth.signIn(
+        email: email,
+        password: password,
+      );
+      log('SIGN IN RES: ${res.toString()}');
 
-    if (res.error != null) {
+      log('SIGN IN DATA: ${res.data.toString()}');
+
       log('SIGN IN ERROR: ${res.error.toString()}');
+
+      return res;
+    } catch (e) {
+      log('catch');
       return null;
     }
+  }
 
-    return res;
+  static Future<Map<String, dynamic>?> getUsetData() async {
+    String id = await SupabaseHandler.getCurrentUser()!.id;
+    final response = await SupabaseHandler.client
+        .from("user_details")
+        .select()
+        .eq("id", id)
+        .execute();
+
+    log('DATA: ${response.data}');
+    log('ERROR: ${response.error}');
+
+    if (response.hasError) return null;
+
+    return response.data[0];
   }
 
   static User? getCurrentUser() {

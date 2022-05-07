@@ -66,6 +66,13 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   // const Body({Key? key}) : super(key: key);
   bool loading = false;
+  bool _hidePass = true;
+  void _toggle() {
+    setState(() {
+      _hidePass = !_hidePass;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // return Container(color: const Color(0xFFFFE306));
@@ -205,6 +212,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         hintText: "Enter your Password",
                       ),
+                      obscureText: _hidePass,
                     ),
                   ),
                 ),
@@ -229,6 +237,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         hintText: "Re-type Password",
                       ),
+                      obscureText: _hidePass,
                     ),
                   ),
                 ),

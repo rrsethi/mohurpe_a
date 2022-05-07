@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/constants.dart';
+import 'package:mohurpe_a/screens/accountinfo/account_info.dart';
 import 'package:mohurpe_a/screens/home/components/body_content.dart';
 import 'package:mohurpe_a/screens/pwdreset/coming_soon_screen.dart';
 import 'package:mohurpe_a/screens/recenttrans/recent_transaction.dart';
@@ -55,7 +56,7 @@ class Body extends StatelessWidget {
                   color: kPrimaryColor,
                 ),
                 child: Text(
-                  'Hello RR Sethi',
+                  'Hello User',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -253,7 +254,7 @@ class Body extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return const ComingSoonScreen();
+                          return const AccountInfoScreen();
                         },
                       ),
                     );

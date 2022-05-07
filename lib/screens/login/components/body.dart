@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mohurpe_a/constants.dart';
 import 'package:mohurpe_a/screens/home/home_screen.dart';
 import 'package:mohurpe_a/screens/pwdreset/coming_soon_screen.dart';
 import 'package:mohurpe_a/screens/signup/signup_screen.dart';
+import 'package:mohurpe_a/utils/supabase.dart';
+import 'package:supabase/supabase.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -13,9 +17,11 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  TextEditingController useridController = TextEditingController();
+  TextEditingController _mailController = TextEditingController();
 
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  bool _hidePass = true;
+  bool loading = false;
 
   String correctUserid = "rrsethi";
 
@@ -56,9 +62,9 @@ class _BodyState extends State<Body> {
                 padding: EdgeInsets.fromLTRB(size.width * 0.05,
                     size.height * 0.1, size.width * 0.05, size.height * 0.01),
                 child: TextField(
-                  controller: useridController,
+                  controller: _mailController,
                   decoration: InputDecoration(
-                    labelText: 'User ID',
+                    labelText: 'Mail ID',
                     enabledBorder: OutlineInputBorder(
                       borderSide:
                           const BorderSide(width: 3, color: Colors.grey),
@@ -69,7 +75,7 @@ class _BodyState extends State<Body> {
                           const BorderSide(width: 3, color: kPrimaryColor),
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    hintText: "Enter your user ID",
+                    hintText: "Enter your mail ID",
                   ),
                 ),
               ),
@@ -78,7 +84,7 @@ class _BodyState extends State<Body> {
                 padding: EdgeInsets.fromLTRB(size.width * 0.05, 15,
                     size.width * 0.05, size.height * 0.01),
                 child: TextField(
-                  controller: passwordController,
+                  controller: _passwordController,
                   decoration: InputDecoration(
                     labelText: 'Password',
                     enabledBorder: OutlineInputBorder(
@@ -93,6 +99,7 @@ class _BodyState extends State<Body> {
                     ),
                     hintText: "Enter your Password",
                   ),
+                  obscureText: _hidePass,
                 ),
               ),
 
@@ -104,18 +111,30 @@ class _BodyState extends State<Body> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                   ),
-                  child: const Text(
-                    'LOGIN',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                  onPressed: () {
+
+                  // child: const Text(
+                  //   'LOGIN',
+                  //   style: TextStyle(
+                  //     fontSize: 20.0,
+                  //     color: Colors.white,
+                  //   ),
+                  // ),
+                  onPressed: () async {
+                    setState(() {
+                      loading = true;
+                    });
                     // print(useridController.text);
                     // print(passwordController.text);
-                    if (useridController.text == correctUserid) {
-                      if (passwordController.text == correctPassword) {
+
+                    if ((_mailController.text != "") &
+                        (_passwordController.text != "")) {
+                      log("message");
+                      final response = await SupabaseHandler.signIn(
+                          email: _mailController.text,
+                          password: _passwordController.text);
+                      if (response != null) {
+                        log("message1");
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -125,8 +144,13 @@ class _BodyState extends State<Body> {
                           ),
                         );
                       } else {
+                        log("message2");
+
+                        setState(() {
+                          loading = false;
+                        });
                         AlertDialog alert = AlertDialog(
-                            title: const Text("Incorrect Password!"),
+                            title: const Text("Data error!"),
                             actions: <Widget>[
                               ElevatedButton(
                                 child: const Text('Back'),
@@ -143,8 +167,13 @@ class _BodyState extends State<Body> {
                         );
                       }
                     } else {
+                      log("message3");
+
+                      setState(() {
+                        loading = false;
+                      });
                       AlertDialog alert = AlertDialog(
-                          title: const Text("Incorrect User ID!"),
+                          title: const Text("Empty field!"),
                           actions: <Widget>[
                             ElevatedButton(
                               child: const Text('Back'),
@@ -160,7 +189,59 @@ class _BodyState extends State<Body> {
                         },
                       );
                     }
+
+                    // if (_mailController.text == correctUserid) {
+                    //   if (_passwordController.text == correctPassword) {
+
+                    //   } else {
+                    //     AlertDialog alert = AlertDialog(
+                    //         title: const Text("Incorrect Password!"),
+                    //         actions: <Widget>[
+                    //           ElevatedButton(
+                    //             child: const Text('Back'),
+                    //             onPressed: () {
+                    //               Navigator.pop(context);
+                    //             },
+                    //           ),
+                    //         ]);
+                    //     showDialog(
+                    //       context: context,
+                    //       builder: (BuildContext context) {
+                    //         return alert;
+                    //       },
+                    //     );
+                    //   }
+                    // } else {
+                    //   AlertDialog alert = AlertDialog(
+                    //       title: const Text("Incorrect User ID!"),
+                    //       actions: <Widget>[
+                    //         ElevatedButton(
+                    //           child: const Text('Back'),
+                    //           onPressed: () {
+                    //             Navigator.pop(context);
+                    //           },
+                    //         ),
+                    //       ]);
+                    //   showDialog(
+                    //     context: context,
+                    //     builder: (BuildContext context) {
+                    //       return alert;
+                    //     },
+                    //   );
+                    // }
                   },
+                  child: loading
+                      ? const CircularProgressIndicator(
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.white),
+                        )
+                      : const Text(
+                          'LOGIN',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                          ),
+                        ),
                 ),
               ),
 
